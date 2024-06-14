@@ -1,0 +1,77 @@
+{
+  "name": "create-frontend-app",
+  "version": "1.0.0",
+  "description": "CLI for creating frontend application",
+  "author": "Aleksey Shelementev <rushelex@gmail.com>",
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "preinstall": "npm run check-engine",
+    "check-engine": "npx check-node-version --package",
+    "check-types": "tsc --noEmit --pretty",
+    "check-scripts": "cross-env NODE_ENV=production eslint src",
+    "prestart": "npm run check-engine",
+    "start": "pkgroll --watch",
+    "prebuild": "npm run check-engine",
+    "build": "pkgroll --minify",
+    "build:npm-package": "npm run build",
+    "release": "semantic-release",
+    "test": "vitest",
+    "test:dev": "npm test -- --watch"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.3.0",
+    "@commitlint/config-conventional": "19.2.2",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/commit-analyzer": "13.0.0",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/npm": "12.0.1",
+    "@semantic-release/release-notes-generator": "14.0.0",
+    "@types/node": "18.15.3",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
+    "cross-env": "7.0.3",
+    "eslint": "8.57.0",
+    "eslint-kit": "10.31.1",
+    "lint-staged": "15.2.5",
+    "pkgroll": "2.1.1",
+    "prettier": "3.3.2",
+    "simple-git-hooks": "2.11.1",
+    "typescript": "5.4.5",
+    "vite-tsconfig-paths": "4.3.2",
+    "vitest": "1.6.0"
+  },
+  "dependencies": {
+    "@types/inquirer": "9.0.7",
+    "case": "1.6.3",
+    "commander": "12.1.0",
+    "handlebars": "4.7.8",
+    "inquirer": "9.2.23",
+    "zx": "8.1.2"
+  },
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "imports": {
+    "~": "./src"
+  },
+  "exports": {
+    "default": "./dist/index.mjs"
+  },
+  "files": [
+    "dist/index.mjs"
+  ],
+  "bin": {
+    "create-frontend-app": "./dist/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rushelex/create-frontend-app.git"
+  },
+  "homepage": "https://github.com/rushelex/create-frontend-app#readme",
+  "bugs": {
+    "url": "https://github.com/rushelex/create-frontend-app/issues"
+  },
+  "engines": {
+    "node": "18",
+    "npm": "9"
+  }
+}

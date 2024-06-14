@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# build
+/dist
+
+# environment
+.env*
+!.env.example
+
+# etc
+.DS_Store
+/.idea
+/.vscode
+/.temp
+.npmrc
